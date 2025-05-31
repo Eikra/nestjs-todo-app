@@ -1,15 +1,15 @@
 .PHONY: start stop restart logs test migrate
 
 # Build and start all services (API, Postgres, Redis)
-start_db:
-	docker compose up --build -d --remove-orphans
+start:
+	docker compose up -d --remove-orphans
 
 # Stop all running containers
 stop_db:
 	docker compose down --volumes --remove-orphans
 
 # Restart all services
-restart_db: stop start
+restart: stop start
 
 clean_db:
 	docker stop $(docker ps -q)   
@@ -23,24 +23,28 @@ logs:
 
 # Run Prisma migrations 
 migrate:
+	corepack enable && corepack prepare yarn@4.9.1 --activate
+	yarn install --immutable
 	yarn prisma generate
 	yarn prisma migrate deploy
 	yarn dotenv -e .env.test -- prisma migrate deploy
 
-# Run tests inside the NestJS container
-test:
-	yarn test:e2e
+# Run tests outside the NestJS container
+test: start
+	./test.sh
 
-start-dev:
+# make sure to use localhost instead of postgres_db in .env +++++++++++++++++++++
+# and localhost untested of redis_cache in .env.test
+start-dev: start migrate
+	docker stop nest_app || true
+	docker rm nest_app || true
 	yarn start:dev
 
-start-app:
-	yarn start:prod
+clean:
+	./script.sh
 
-start:
-	corepack enable && corepack prepare yarn@4.9.1 --activate
-	yarn install --immutable
 
-all: start_db start 
+
+
 
 
