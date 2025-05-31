@@ -106,7 +106,7 @@ This project implements a Todo API with user authentication, allowing users to r
 6. **Start the Application**:
    - For production:
      ```bash
-     yarn start:prod
+     make start
      ```
    - For development (with hot-reload):
      ```bash
