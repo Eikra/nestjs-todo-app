@@ -1,0 +1,32 @@
+nvm install 20.11.1
+nvm use 20.11.1
+npm install -g @nestjs/cli
+nest new nestjs-app
+nest g module user
+nest g module todo
+npm install -g yarn
+yarn add prisma
+yarn add @prisma/client
+yarn add class-validator class-transformer
+yarn add argon2
+yarn add -D @types/argon2
+
+
+npx prisma migrate dev --name add-auth-fields-to-user
+npx prisma migrate deploy
+yarn add @nestjs/config
+
+npm install --save @nestjs/jwt
+yarn add -D @types/passport-jwt
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt
+nest g controller user --no-spec
+npm install @nestjs/cache-manager cache-manager-redis-store
+yarn add @nestjs/common @nestjs/core
+yarn add @nestjs/common@latest @nestjs/core@latest
+
+
+
+
+yarn add -D pactum
+yarn add -D dotenv
+yarn add -D dotenv-cli
