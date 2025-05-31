@@ -6,7 +6,7 @@ services:
     container_name: postgres_db
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.docker
     ports:
       - "5432:5432"
     volumes:
@@ -19,7 +19,7 @@ services:
     container_name: postgres_db_test
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.docker
     ports:
       - "5435:5432"
     volumes:
@@ -48,7 +48,7 @@ services:
       - redis
       - postgresTest
     env_file:
-      - .env
+      - .env.docker
     networks:
       - backend
     

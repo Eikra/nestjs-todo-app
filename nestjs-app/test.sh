@@ -3,6 +3,10 @@ corepack enable && corepack prepare yarn@4.9.1 --activate
 
 yarn install --immutable
 
+yarn add -D pactum
+yarn add -D dotenv
+yarn add -D dotenv-cli
+
 yarn prisma generate
 
 yarn prisma migrate deploy

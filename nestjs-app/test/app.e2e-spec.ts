@@ -21,7 +21,7 @@ describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
   let prisma: PrismaService;
   let serverport: number;
-  serverport = 3001; // Set the port for the application
+  serverport = 3002; // Set the port for the application
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -48,7 +48,7 @@ describe('AppController (e2e)', () => {
 
 
     prisma = moduleFixture.get<PrismaService>(PrismaService);
-    if (serverport === 3002) {
+    if (serverport === 3003) {
       await prisma.cleanDb(); // Ensure the database is clean before each test
     }
 
