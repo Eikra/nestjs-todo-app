@@ -1,4 +1,4 @@
-# nestjs-todo-app# NestJS Todo API with Authentication
+# NestJS Todo API with Authentication
 
 This project is a RESTful API for a Todo application built as part of a Backend Developer Internship project. It uses **NestJS**, **TypeScript**, **Prisma ORM** with **PostgreSQL**, and **Redis** for caching. The API includes user authentication, todo management, and follows best practices for security, performance, and code quality.
 
